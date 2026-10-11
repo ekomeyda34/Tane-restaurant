@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tane Restaurant Menu</title>
+    <title id="page-title">Tane Restaurant Menu</title>
     <style>
         body {
             background-color: #121212;
@@ -12,7 +12,18 @@
             margin: 0;
             padding: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .lang-selector {
+            margin-bottom: 20px;
+            background: #222;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
         }
         .container {
             max-width: 600px;
@@ -74,148 +85,191 @@
 </head>
 <body>
 
+<select id="langSwitch" class="lang-selector" onchange="changeLanguage(this.value)">
+    <option value="tr">Türkçe</option>
+    <option value="en">English</option>
+</select>
+
 <div class="container">
     <div class="header">
         <h1>Tane</h1>
         <p>Restaurant</p>
     </div>
 
-    <h2>YİYECEKLER & TATLILAR</h2>
+    <h2 id="cat-food">YİYECEKLER & TATLILAR</h2>
     
     <div class="item">
-        <span class="item-name">Günün Çorbası</span>
+        <span class="item-name" data-tr="Günün Çorbası" data-en="Soup of the Day">Günün Çorbası</span>
         <span class="price">170 TL</span>
     </div>
     <div class="item">
         <div>
-            <span class="item-name">Kuru Fasülye</span>
-            <span class="item-sub">(tereyağlı)</span>
+            <span class="item-name" data-tr="Kuru Fasülye" data-en="Baked Beans">Kuru Fasülye</span>
+            <span class="item-sub" data-tr="(tereyağlı)" data-en="(with butter)">(tereyağlı)</span>
         </div>
         <span class="price">390 TL</span>
     </div>
     <div class="item">
         <div>
-            <span class="item-name">Pilav</span>
-            <span class="item-sub">(Pirinç&Bulgur)</span>
+            <span class="item-name" data-tr="Pilav" data-en="Rice">Pilav</span>
+            <span class="item-sub" data-tr="(Pirinç&Bulgur)" data-en="(Rice & Bulgur)">(Pirinç&Bulgur)</span>
         </div>
         <span class="price">170 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Pilav & Kavurma</span>
+        <span class="item-name" data-tr="Pilav & Kavurma" data-en="Rice & Roasted Meat">Pilav & Kavurma</span>
         <span class="price">550 TL</span>
     </div>
     <div class="item">
         <div>
-            <span class="item-name">Tane Özel Tabağı</span>
-            <span class="item-sub">(Kuru&Pilav&Kavurma)</span>
+            <span class="item-name" data-tr="Tane Özel Tabağı" data-en="Tane Special Plate">Tane Özel Tabağı</span>
+            <span class="item-sub" data-tr="(Kuru&Pilav&Kavurma)" data-en="(Beans&Rice&Meat)">(Kuru&Pilav&Kavurma)</span>
         </div>
         <span class="price">720 TL</span>
     </div>
     <div class="item">
         <div>
-            <span class="item-name">Kavurma 100 gr</span>
-            <span class="item-sub">(güveçte tereyağlı)</span>
+            <span class="item-name" data-tr="Kavurma 100 gr" data-en="Roasted Meat 100 gr">Kavurma 100 gr</span>
+            <span class="item-sub" data-tr="(güveçte tereyağlı)" data-en="(in earthen pot with butter)">(güveçte tereyağlı)</span>
         </div>
         <span class="price">550 TL</span>
     </div>
     <div class="item">
         <div>
-            <span class="item-name">Kavurma 150 gr</span>
-            <span class="item-sub">(güveçte tereyağlı)</span>
+            <span class="item-name" data-tr="Kavurma 150 gr" data-en="Roasted Meat 150 gr">Kavurma 150 gr</span>
+            <span class="item-sub" data-tr="(güveçte tereyağlı)" data-en="(in earthen pot with butter)">(güveçte tereyağlı)</span>
         </div>
         <span class="price">740 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Tane Beğendi</span>
+        <span class="item-name" data-tr="Tane Beğendi" data-en="Tane Beğendi (Smoked Eggplant Puree with Meat)">Tane Beğendi</span>
         <span class="price">550 TL</span>
     </div>
     <div class="item">
         <div>
-            <span class="item-name">Etli Yaprak Sarma</span>
-            <span class="item-sub">(Yoğurt ile)</span>
+            <span class="item-name" data-tr="Etli Yaprak Sarma" data-en="Stuffed Grape Leaves with Meat">Etli Yaprak Sarma</span>
+            <span class="item-sub" data-tr="(Yoğurt ile)" data-en="(with Yogurt)">(Yoğurt ile)</span>
         </div>
         <span class="price">550 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Zeytinyağlı Yaprak Sarma</span>
+        <span class="item-name" data-tr="Zeytinyağlı Yaprak Sarma" data-en="Stuffed Grape Leaves with Olive Oil">Zeytinyağlı Yaprak Sarma</span>
         <span class="price">450 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Patates Salatası</span>
+        <span class="item-name" data-tr="Patates Salatası" data-en="Potato Salad">Patates Salatası</span>
         <span class="price">280 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Havuç Tarator</span>
+        <span class="item-name" data-tr="Havuç Tarator" data-en="Carrot Tarator">Havuç Tarator</span>
         <span class="price">280 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Fırın Sütlaç</span>
+        <span class="item-name" data-tr="Fırın Sütlaç" data-en="Baked Rice Pudding">Fırın Sütlaç</span>
         <span class="price">250 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Fırın Sütlaç Fındıklı</span>
+        <span class="item-name" data-tr="Fırın Sütlaç Fındıklı" data-en="Baked Rice Pudding with Hazelnut">Fırın Sütlaç Fındıklı</span>
         <span class="price">300 TL</span>
     </div>
     <div class="item">
         <div>
-            <span class="item-name">Magnolia</span>
-            <span class="item-sub">(Çilekli Muzlu Oreolu)</span>
+            <span class="item-name" data-tr="Magnolia" data-en="Magnolia Pudding">Magnolia</span>
+            <span class="item-sub" data-tr="(Çilekli Muzlu Oreolu)" data-en="(Strawberry, Banana & Oreo)">(Çilekli Muzlu Oreolu)</span>
         </div>
         <span class="price">300 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Cacık</span>
+        <span class="item-name" data-tr="Cacık" data-en="Cacik (Tzatziki)">Cacık</span>
         <span class="price">170 TL</span>
     </div>
     <div class="item">
         <div>
-            <span class="item-name">Yoğurt</span>
-            <span class="item-sub">(Tava)</span>
+            <span class="item-name" data-tr="Yoğurt" data-en="Yogurt">Yoğurt</span>
+            <span class="item-sub" data-tr="(Tava)" data-en="(Pan Yogurt)">(Tava)</span>
         </div>
         <span class="price">170 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Karışık Turşu</span>
+        <span class="item-name" data-tr="Karışık Turşu" data-en="Mixed Pickles">Karışık Turşu</span>
         <span class="price">190 TL</span>
     </div>
 
-    <h2>İÇECEKLER</h2>
+    <h2 id="cat-drink">İÇECEKLER</h2>
 
     <div class="item">
-        <span class="item-name">Kola</span>
+        <span class="item-name" data-tr="Kola" data-en="Coke">Kola</span>
         <span class="price">125 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Ayran</span>
+        <span class="item-name" data-tr="Ayran" data-en="Ayran (Yogurt Drink)">Ayran</span>
         <span class="price">100 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Soda</span>
+        <span class="item-name" data-tr="Soda" data-en="Sparkling Water">Soda</span>
         <span class="price">125 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Türk Kahvesi</span>
+        <span class="item-name" data-tr="Türk Kahvesi" data-en="Turkish Coffee">Türk Kahvesi</span>
         <span class="price">150 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Nescafe</span>
+        <span class="item-name" data-tr="Nescafe" data-en="Nescafe">Nescafe</span>
         <span class="price">125 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Bitki Çayı</span>
+        <span class="item-name" data-tr="Bitki Çayı" data-en="Herbal Tea">Bitki Çayı</span>
         <span class="price">100 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Çay</span>
+        <span class="item-name" data-tr="Çay" data-en="Tea">Çay</span>
         <span class="price">100 TL</span>
     </div>
     <div class="item">
-        <span class="item-name">Su</span>
+        <span class="item-name" data-tr="Su" data-en="Water">Su</span>
         <span class="price">70 TL</span>
     </div>
 
     <div class="logo-symbol">豆</div>
 </div>
+
+<script>
+    function setLanguage(lang) {
+        document.documentElement.lang = lang;
+        document.getElementById('langSwitch').value = lang;
+        
+        // Başlıkları güncelle
+        document.getElementById('cat-food').innerText = lang === 'en' ? 'FOOD & DESSERTS' : 'YİYECEKLER & TATLILAR';
+        document.getElementById('cat-drink').innerText = lang === 'en' ? 'BEVERAGES' : 'İÇECEKLER';
+
+        // Tüm menü elemanlarını güncelle
+        const elements = document.querySelectorAll('[data-tr]');
+        elements.forEach(el => {
+            el.innerText = el.getAttribute(`data-${lang}`);
+        });
+
+        // Tercihi tarayıcıda sakla (çerez/hafıza mantığı)
+        localStorage.setItem('preferred_lang', lang);
+    }
+
+    function changeLanguage(lang) {
+        setLanguage(lang);
+    }
+
+    // Sayfa açıldığında dil tespiti yap
+    window.onload = function() {
+        // 1. Daha önce kaydedilmiş bir tercih var mı kontrol et
+        let savedLang = localStorage.getItem('preferred_lang');
+        
+        if (!savedLang) {
+            // 2. Yoksa kullanıcının tarayıcı diline bak
+            let browserLang = navigator.language || navigator.userLanguage;
+            savedLang = browserLang.startsWith('tr') ? 'tr' : 'en';
+        }
+        
+        setLanguage(savedLang);
+    };
+</script>
 
 </body>
 </html>
